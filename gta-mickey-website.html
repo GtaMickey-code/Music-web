@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTA Mickey - Official Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-dark: #0a0a0a;
+            --bg-card: #141414;
+            --bg-elevated: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666666;
+            --accent: #ff3e3e;
+            --accent-hover: #ff6b6b;
+            --border: #2a2a2a;
+            --spotify: #1DB954;
+            --apple: #FA57C1;
+            --audiomack: #FFA500;
+            --youtube: #FF0000;
+            --boomplay: #E91E63;
+            --soundcloud: #ff5500;
+            --instagram: #E1306C;
+            --facebook: #1877F2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-muted);
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            color: var(--text-primary);
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 50%, #0a0a0a 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(255, 62, 62, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+            padding: 2rem;
+            max-width: 900px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -3px;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--accent), #ff8f8f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 62, 62, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--border);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-primary);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .about-image::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: -20px;
+            bottom: -20px;
+            border: 2px solid var(--accent);
+            border-radius: 20px;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .about-content h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .music-section {
+            background: var(--bg-card);
+            border-radius: 30px;
+            padding: 4rem;
+            margin: 0 2rem;
+            max-width: 1200px;
+        }
+
+        .track-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .track-item {
+            background: var(--bg-elevated);
+            border-radius: 16px;
+            padding: 1.5rem;
+            display: grid;
+            grid-template-columns: auto 1fr auto auto;
+            gap: 1.5rem;
+            align-items: center;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .track-item:hover {
+            border-color: var(--border);
+            transform: translateX(5px);
+        }
+
+        .track-number {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            width: 30px;
+        }
+
+        .track-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .track-cover {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--accent), #ff8f8f);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .track-details h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+        }
+
+        .track-details span {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .track-duration {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .track-play-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            flex-shrink: 0;
+        }
+
+        .track-play-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 20px rgba(255, 62, 62, 0.4);
+        }
+
+        .track-play-btn.playing {
+            background: var(--text-primary);
+            color: var(--bg-dark);
+        }
+
+        .audio-progress {
+            grid-column: 1 / -1;
+            height: 4px;
+            background: var(--border);
+            border-radius: 2px;
+            overflow: hidden;
+            display: none;
+            margin-top: 0.5rem;
+        }
+
+        .audio-progress.active {
+            display: block;
+        }
+
+        .audio-progress-bar {
+            height: 100%;
+            background: var(--accent);
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.9);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: var(--bg-card);
+            border-radius: 24px;
+            padding: 3rem;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            border: 1px solid var(--border);
+            animation: modalIn 0.3s ease;
+        }
+
+        @keyframes modalIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .modal h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .streaming-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .stream-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .stream-btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        .stream-spotify { background: var(--spotify); }
+        .stream-apple { background: linear-gradient(135deg, #FA57C1, #9B59B6); }
+        .stream-audiomack { background: var(--audiomack); color: #000; }
+        .stream-youtube { background: var(--youtube); }
+        .stream-boomplay { background: var(--boomplay); }
+        .stream-soundcloud { background: var(--soundcloud); }
+
+        .modal-close {
+            margin-top: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .modal-close:hover {
+            color: var(--text-primary);
+        }
+
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .video-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s;
+            border: 1px solid var(--border);
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--text-muted);
+        }
+
+        .video-thumbnail {
+            position: relative;
+            aspect-ratio: 16/9;
+            background: var(--bg-elevated);
+            overflow: hidden;
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .video-card:hover .play-overlay {
+            opacity: 1;
+        }
+
+        .play-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .video-card:hover .play-icon {
+            transform: scale(1.1);
+        }
+
+        .video-info {
+            padding: 1.5rem;
+        }
+
+        .video-info h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .video-info p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .video-tag {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.2rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .shows-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .show-item {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 2rem;
+            align-items: center;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .show-item:hover {
+            border-color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        .show-date {
+            text-align: center;
+            min-width: 80px;
+        }
+
+        .show-date .day {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .show-date .month {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .show-info h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .show-info p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .show-info i {
+            margin-right: 0.5rem;
+            color: var(--accent);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--border);
+        }
+
+        .contact-card i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .contact-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--bg-elevated);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            border: 1px solid var(--border);
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+        }
+
+        .social-link.spotify:hover { background: var(--spotify); border-color: var(--spotify); color: white; }
+        .social-link.soundcloud:hover { background: var(--soundcloud); border-color: var(--soundcloud); color: white; }
+        .social-link.instagram:hover { background: linear-gradient(135deg, #E1306C, #F77737); border-color: #E1306C; color: white; }
+        .social-link.facebook:hover { background: var(--facebook); border-color: var(--facebook); color: white; }
+        .social-link.youtube:hover { background: var(--youtube); border-color: var(--youtube); color: white; }
+        .social-link.tiktok:hover { background: #000; border-color: #fff; color: white; }
+        .social-link.twitter:hover { background: #1DA1F2; border-color: #1DA1F2; color: white; }
+
+        .newsletter {
+            background: linear-gradient(135deg, var(--accent), #c0392b);
+            border-radius: 30px;
+            padding: 4rem;
+            text-align: center;
+            margin: 0 2rem 4rem;
+            max-width: 1200px;
+        }
+
+        .newsletter h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter p {
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .newsletter-form button {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            border: none;
+            background: var(--bg-dark);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: var(--bg-card);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .social-banner {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin: 0 2rem 4rem;
+            max-width: 1200px;
+            border: 1px solid var(--border);
+        }
+
+        .social-banner h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .social-banner p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .social-banner-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .social-banner-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .social-banner-link:hover {
+            transform: translateY(-3px);
+            opacity: 0.9;
+        }
+
+        .social-banner-link i {
+            font-size: 1.3rem;
+        }
+
+        .social-banner-link.spotify { background: var(--spotify); }
+        .social-banner-link.soundcloud { background: var(--soundcloud); }
+        .social-banner-link.instagram { background: linear-gradient(135deg, #E1306C, #F77737); }
+        .social-banner-link.facebook { background: var(--facebook); }
+        .social-banner-link.youtube { background: var(--youtube); }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .music-section {
+                padding: 2rem;
+                margin: 0 1rem;
+            }
+            .track-item {
+                grid-template-columns: auto 1fr auto;
+                gap: 1rem;
+            }
+            .track-duration {
+                display: none;
+            }
+            .videos-grid {
+                grid-template-columns: 1fr;
+            }
+            .show-item {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 1rem;
+            }
+            .newsletter {
+                padding: 2rem;
+                margin: 0 1rem 2rem;
+            }
+            .newsletter-form {
+                flex-direction: column;
+            }
+            .stats {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .social-banner-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            .social-banner-link {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">GTA<span> Mickey</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#music">Music</a></li>
+            <li><a href="#videos">Videos</a></li>
+            <li><a href="#shows">Shows</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-badge">New Music Out Now</div>
+            <h1>The Sound of <span class="highlight">GTA Mickey</span></h1>
+            <p class="hero-subtitle">Raw energy. Real stories. Unfiltered sound. Listen to 20-second previews and stream the full tracks on your favorite platform.</p>
+            <div class="hero-buttons">
+                <a href="#music" class="btn btn-primary"><i class="fas fa-play"></i> Listen Now</a>
+                <a href="#videos" class="btn btn-outline"><i class="fas fa-video"></i> Watch Performances</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down" style="color: var(--text-muted); font-size: 1.5rem;"></i>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="section-header fade-in">
+            <h2>About GTA Mickey</h2>
+            <div class="section-divider"></div>
+            <p>The story behind the name, the sound, and the movement.</p>
+        </div>
+        <div class="about-grid fade-in">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&h=700&fit=crop" alt="GTA Mickey performing on stage">
+            </div>
+            <div class="about-content">
+                <h3>From the Underground to the Spotlight</h3>
+                <p>GTA Mickey is a rising force in the music scene, blending raw street energy with melodic storytelling that hits different. Known for tracks like <em>Thugs Cry Too</em>, <em>Inner Energy</em>, and <em>Get The Smoke</em>, his sound captures the grit and emotion of real-life experiences — unfiltered, unapologetic, and undeniably authentic.</p>
+                <p>Collaborating with artists like Oga BG and 18illest, GTA Mickey has carved out a space where vulnerability meets power. His music doesn't just play — it resonates. Every verse is a chapter, every hook a feeling, every track a testament to the hustle.</p>
+                <p>With a growing catalog on Spotify, Apple Music, SoundCloud, and Audiomack, GTA Mickey is building more than a fanbase — he's building a movement. The name isn't just a brand. It's a statement. This is GTA Mickey. Welcome to the ride.</p>
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">Releases</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">2024</div>
+                        <div class="stat-label">Started</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">Global</div>
+                        <div class="stat-label">Reach</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding: 0;">
+        <div class="social-banner fade-in">
+            <h3>Follow GTA Mickey Everywhere</h3>
+            <p>Stream, watch, and connect across all platforms</p>
+            <div class="social-banner-links">
+                <a href="https://open.spotify.com/artist/0o8uJxfBQc1nwW6t7b9FP1" target="_blank" class="social-banner-link spotify">
+                    <i class="fab fa-spotify"></i> Spotify
+                </a>
+                <a href="https://soundcloud.com/gtamickey/sets/d-i-j-i-m-i-live" target="_blank" class="social-banner-link soundcloud">
+                    <i class="fab fa-soundcloud"></i> SoundCloud
+                </a>
+                <a href="https://www.instagram.com/gta_mickey.mh/" target="_blank" class="social-banner-link instagram">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+                <a href="https://www.facebook.com/mickey.alsina.7/" target="_blank" class="social-banner-link facebook">
+                    <i class="fab fa-facebook-f"></i> Facebook
+                </a>
+                <a href="https://www.youtube.com/@GTAMickey/videos" target="_blank" class="social-banner-link youtube">
+                    <i class="fab fa-youtube"></i> YouTube
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="music" style="padding: 0;">
+        <div class="section-header fade-in" style="padding-top: 6rem;">
+            <h2>Latest Music</h2>
+            <div class="section-divider"></div>
+            <p>Preview 20 seconds of each track, then stream the full song on your favorite platform.</p>
+        </div>
+        <div class="music-section fade-in">
+            <div class="track-list">
+                <div class="track-item" data-track="thugs-cry-too">
+                    <div class="track-number">01</div>
+                    <div class="track-info">
+                        <div class="track-cover"><i class="fas fa-music"></i></div>
+                        <div class="track-details">
+                            <h4>Thugs Cry Too</h4>
+                            <span>feat. Oga BG • Single • 2026</span>
+                        </div>
+                    </div>
+                    <div class="track-duration">3:45</div>
+                    <button class="track-play-btn" onclick="playPreview(this, 'Thugs Cry Too')">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <div class="audio-progress">
+                        <div class="audio-progress-bar"></div>
+                    </div>
+                </div>
+
+                <div class="track-item" data-track="inner-energy">
+                    <div class="track-number">02</div>
+                    <div class="track-info">
+                        <div class="track-cover" style="background: linear-gradient(135deg, #9b59b6, #e74c3c);"><i class="fas fa-music"></i></div>
+                        <div class="track-details">
+                            <h4>Inner Energy</h4>
+                            <span>feat. 18illest • Single • 2026</span>
+                        </div>
+                    </div>
+                    <div class="track-duration">4:12</div>
+                    <button class="track-play-btn" onclick="playPreview(this, 'Inner Energy')">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <div class="audio-progress">
+                        <div class="audio-progress-bar"></div>
+                    </div>
+                </div>
+
+                <div class="track-item" data-track="get-the-smoke">
+                    <div class="track-number">03</div>
+                    <div class="track-info">
+                        <div class="track-cover" style="background: linear-gradient(135deg, #f39c12, #e74c3c);"><i class="fas fa-music"></i></div>
+                        <div class="track-details">
+                            <h4>Get The Smoke</h4>
+                            <span>2025 Remastered Version • Single • 2025</span>
+                        </div>
+                    </div>
+                    <div class="track-duration">3:28</div>
+                    <button class="track-play-btn" onclick="playPreview(this, 'Get The Smoke')">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <div class="audio-progress">
+                        <div class="audio-progress-bar"></div>
+                    </div>
+                </div>
+
+                <div class="track-item" data-track="obtuse">
+                    <div class="track-number">04</div>
+                    <div class="track-info">
+                        <div class="track-cover" style="background: linear-gradient(135deg, #3498db, #2ecc71);"><i class="fas fa-music"></i></div>
+                        <div class="track-details">
+                            <h4>Obtuse</h4>
+                            <span>Single • 2025</span>
+                        </div>
+                    </div>
+                    <div class="track-duration">3:55</div>
+                    <button class="track-play-btn" onclick="playPreview(this, 'Obtuse')">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <div class="audio-progress">
+                        <div class="audio-progress-bar"></div>
+                    </div>
+                </div>
+
+                <div class="track-item" data-track="boujee">
+                    <div class="track-number">05</div>
+                    <div class="track-info">
+                        <div class="track-cover" style="background: linear-gradient(135deg, #e91e63, #9c27b0);"><i class="fas fa-music"></i></div>
+                        <div class="track-details">
+                            <h4>BOUJEE</h4>
+                            <span>Single • 2024</span>
+                        </div>
+                    </div>
+                    <div class="track-duration">3:33</div>
+                    <button class="track-play-btn" onclick="playPreview(this, 'BOUJEE')">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <div class="audio-progress">
+                        <div class="audio-progress-bar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="videos">
+        <div class="section-header fade-in">
+            <h2>Stage Performances</h2>
+            <div class="section-divider"></div>
+            <p>Live moments captured in their purest form.</p>
+        </div>
+        <div class="videos-grid fade-in">
+            <div class="video-card">
+                <div class="video-thumbnail">
+                    <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=600&h=340&fit=crop" alt="Concert performance">
+                    <div class="play-overlay">
+                        <div class="play-icon"><i class="fas fa-play"></i></div>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <span class="video-tag">Live Performance</span>
+                    <h4>Thugs Cry Too - Live Debut</h4>
+                    <p>The first live performance of the breakout single. Raw emotion, real crowd energy.</p>
+                </div>
+            </div>
+            <div class="video-card">
+                <div class="video-thumbnail">
+                    <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=600&h=340&fit=crop" alt="Festival stage">
+                    <div class="play-overlay">
+                        <div class="play-icon"><i class="fas fa-play"></i></div>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <span class="video-tag">Festival</span>
+                    <h4>Inner Energy - Festival Set 2026</h4>
+                    <p>Bringing the energy to the main stage. The crowd went wild.</p>
+                </div>
+            </div>
+            <div class="video-card">
+                <div class="video-thumbnail">
+                    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600&h=340&fit=crop" alt="Intimate venue">
+                    <div class="play-overlay">
+                        <div class="play-icon"><i class="fas fa-play"></i></div>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <span class="video-tag">Acoustic Session</span>
+                    <h4>Get The Smoke - Unplugged</h4>
+                    <p>Stripped back and raw. Just GTA Mickey, the mic, and the story behind the song.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="shows">
+        <div class="section-header fade-in">
+            <h2>Upcoming Shows</h2>
+            <div class="section-divider"></div>
+            <p>Come experience the music live. Get your tickets now.</p>
+        </div>
+        <div class="shows-list fade-in">
+            <div class="show-item">
+                <div class="show-date">
+                    <div class="day">15</div>
+                    <div class="month">JUN</div>
+                </div>
+                <div class="show-info">
+                    <h4>The Electric Arena</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Los Angeles, CA</p>
+                </div>
+                <a href="#" class="btn btn-primary">Get Tickets</a>
+            </div>
+            <div class="show-item">
+                <div class="show-date">
+                    <div class="day">22</div>
+                    <div class="month">JUN</div>
+                </div>
+                <div class="show-info">
+                    <h4>Summer Sound Festival</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Miami, FL</p>
+                </div>
+                <a href="#" class="btn btn-primary">Get Tickets</a>
+            </div>
+            <div class="show-item">
+                <div class="show-date">
+                    <div class="day">08</div>
+                    <div class="month">JUL</div>
+                </div>
+                <div class="show-info">
+                    <h4>Midnight Club</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> New York, NY</p>
+                </div>
+                <a href="#" class="btn btn-primary">Get Tickets</a>
+            </div>
+            <div class="show-item">
+                <div class="show-date">
+                    <div class="day">20</div>
+                    <div class="month">JUL</div>
+                </div>
+                <div class="show-info">
+                    <h4>Starlight Amphitheater</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Chicago, IL</p>
+                </div>
+                <a href="#" class="btn btn-primary">Get Tickets</a>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding: 0;">
+        <div class="newsletter fade-in">
+            <h3>Join the Movement</h3>
+            <p>Be the first to know about new music, exclusive content, and upcoming shows. No spam, just fire.</p>
+            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thanks for subscribing!');">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="section-header fade-in">
+            <h2>Get in Touch</h2>
+            <div class="section-divider"></div>
+            <p>For bookings, press, or just to say hello.</p>
+        </div>
+        <div class="contact-grid fade-in">
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent! We will get back to you soon.');">
+                <div class="form-group">
+                    <label>Your Name</label>
+                    <input type="text" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="john@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Subject</label>
+                    <input type="text" placeholder="Booking Inquiry" required>
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea placeholder="Tell me about your event or inquiry..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="align-self: flex-start;">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+            </form>
+            <div class="contact-info">
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <h4>Booking</h4>
+                    <p>bookings@gtamickey.com</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-newspaper"></i>
+                    <h4>Press & Media</h4>
+                    <p>press@gtamickey.com</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-share-alt"></i>
+                    <h4>Follow GTA Mickey</h4>
+                    <p>Stay connected across all platforms</p>
+                    <div class="social-links">
+                        <a href="https://open.spotify.com/artist/0o8uJxfBQc1nwW6t7b9FP1" target="_blank" class="social-link spotify"><i class="fab fa-spotify"></i></a>
+                        <a href="https://soundcloud.com/gtamickey/sets/d-i-j-i-m-i-live" target="_blank" class="social-link soundcloud"><i class="fab fa-soundcloud"></i></a>
+                        <a href="https://www.instagram.com/gta_mickey.mh/" target="_blank" class="social-link instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/mickey.alsina.7/" target="_blank" class="social-link facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.youtube.com/@GTAMickey/videos" target="_blank" class="social-link youtube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 GTA Mickey. All rights reserved. Made with <i class="fas fa-heart" style="color: var(--accent);"></i> and music.</p>
+    </footer>
+
+    <div class="modal-overlay" id="streamModal">
+        <div class="modal">
+            <h3 id="modalTrackName">Track Name</h3>
+            <p>Listen to the full track on your favorite platform</p>
+            <div class="streaming-links">
+                <a href="https://open.spotify.com/artist/0o8uJxfBQc1nwW6t7b9FP1" target="_blank" class="stream-btn stream-spotify">
+                    <i class="fab fa-spotify"></i> Listen on Spotify
+                </a>
+                <a href="https://music.apple.com/us/artist/gta-mickey/1777266461" target="_blank" class="stream-btn stream-apple">
+                    <i class="fab fa-apple"></i> Listen on Apple Music
+                </a>
+                <a href="https://soundcloud.com/gtamickey/sets/d-i-j-i-m-i-live" target="_blank" class="stream-btn stream-soundcloud">
+                    <i class="fab fa-soundcloud"></i> Listen on SoundCloud
+                </a>
+                <a href="https://audiomack.com" target="_blank" class="stream-btn stream-audiomack">
+                    <i class="fas fa-music"></i> Listen on Audiomack
+                </a>
+                <a href="https://music.youtube.com" target="_blank" class="stream-btn stream-youtube">
+                    <i class="fab fa-youtube"></i> Listen on YouTube Music
+                </a>
+                <a href="https://boomplay.com" target="_blank" class="stream-btn stream-boomplay">
+                    <i class="fas fa-play-circle"></i> Listen on Boomplay
+                </a>
+            </div>
+            <button class="modal-close" onclick="closeModal()">Maybe later</button>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        let currentAudio = null;
+        let currentBtn = null;
+        let currentProgress = null;
+        let previewInterval = null;
+        let currentTrackName = '';
+
+        function playPreview(btn, trackName) {
+            const trackItem = btn.closest('.track-item');
+            const progressBar = trackItem.querySelector('.audio-progress-bar');
+            const progressContainer = trackItem.querySelector('.audio-progress');
+            const icon = btn.querySelector('i');
+
+            if (currentBtn === btn && btn.classList.contains('playing')) {
+                stopPreview();
+                return;
+            }
+
+            stopPreview();
+
+            currentBtn = btn;
+            currentProgress = progressBar;
+            currentTrackName = trackName;
+
+            btn.classList.add('playing');
+            icon.classList.remove('fa-play');
+            icon.classList.add('fa-pause');
+            progressContainer.classList.add('active');
+
+            let progress = 0;
+            const duration = 20000;
+            const interval = 100;
+
+            previewInterval = setInterval(() => {
+                progress += interval;
+                const percentage = (progress / duration) * 100;
+                progressBar.style.width = percentage + '%';
+
+                if (progress >= duration) {
+                    stopPreview();
+                    showStreamModal(trackName);
+                }
+            }, interval);
+        }
+
+        function stopPreview() {
+            if (previewInterval) {
+                clearInterval(previewInterval);
+                previewInterval = null;
+            }
+
+            if (currentBtn) {
+                currentBtn.classList.remove('playing');
+                const icon = currentBtn.querySelector('i');
+                icon.classList.remove('fa-pause');
+                icon.classList.add('fa-play');
+            }
+
+            if (currentProgress) {
+                currentProgress.style.width = '0%';
+                currentProgress.closest('.audio-progress').classList.remove('active');
+            }
+
+            currentBtn = null;
+            currentProgress = null;
+        }
+
+        function showStreamModal(trackName) {
+            document.getElementById('modalTrackName').textContent = trackName;
+            document.getElementById('streamModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('streamModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('streamModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            navLinks.style.position = 'absolute';
+            navLinks.style.top = '100%';
+            navLinks.style.left = '0';
+            navLinks.style.right = '0';
+            navLinks.style.flexDirection = 'column';
+            navLinks.style.background = 'var(--bg-dark)';
+            navLinks.style.padding = '2rem';
+            navLinks.style.borderBottom = '1px solid var(--border)';
+        });
+    </script>
+</body>
+</html>
